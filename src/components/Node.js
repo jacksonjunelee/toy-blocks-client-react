@@ -11,8 +11,9 @@ import {
 } from "@material-ui/core";
 import colors from "../constants/colors";
 import Status from "./Status";
+import Blocks from '../containers/Blocks';
 
-const Node = ({ node, expanded, toggleNodeExpanded }) => {
+const Node = ({ node, expanded, toggleNodeExpanded, handleAddBlock }) => {
   const classes = useStyles();
   return (
     <Accordion
@@ -20,6 +21,7 @@ const Node = ({ node, expanded, toggleNodeExpanded }) => {
       className={classes.root}
       expanded={expanded}
       onChange={() => toggleNodeExpanded(node)}
+      onClick={() => handleAddBlock(node)}
     >
       <AccordionSummary
         className={classes.summary}
@@ -46,7 +48,7 @@ const Node = ({ node, expanded, toggleNodeExpanded }) => {
         </Box>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>Blocks go here</Typography>
+        <Blocks blocks={node.blocks} />
       </AccordionDetails>
     </Accordion>
   );

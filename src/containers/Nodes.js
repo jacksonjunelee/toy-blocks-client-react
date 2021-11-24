@@ -13,6 +13,7 @@ export class Nodes extends React.Component {
       expandedNodeURL: null,
     };
     this.toggleNodeExpanded = this.toggleNodeExpanded.bind(this);
+    this.handleAddBlock = this.handleAddBlock.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +25,12 @@ export class Nodes extends React.Component {
       expandedNodeURL:
         node.url === this.state.expandedNodeURL ? null : node.url,
     });
+  }
+
+  handleAddBlock(node) {
+    if (node.blocks.length === 0) {
+      this.props.actions.addBlocks(node);
+    }
   }
 
   render() {
@@ -39,6 +46,7 @@ export class Nodes extends React.Component {
             key={node.url}
             expanded={node.url === this.state.expandedNodeURL}
             toggleNodeExpanded={this.toggleNodeExpanded}
+            handleAddBlock={this.handleAddBlock}
           />
         ))}
       </Box>

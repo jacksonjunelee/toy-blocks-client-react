@@ -23,6 +23,48 @@ const checkNodeStatusFailure = (node) => {
   };
 };
 
+const addBlockStart = (node) => {
+  return {
+    type: types.ADD_BLOCK_START,
+    node,
+  };
+};
+
+const addBlockSuccess = (node, res) => {
+  return {
+    type: types.ADD_BLOCK_SUCCESS,
+    node,
+    res,
+  };
+};
+
+const addBlockFailure = (node) => {
+  return {
+    type: types.ADD_BLOCK_FAILURE,
+    node,
+  };
+};
+
+export function addBlocks(node) {
+  return async (dispatch) => {
+    try {
+      dispatch(addBlockStart(node));
+      const res = await fetch(`${node.url}/api/v1/blocks`);
+
+      if (res.status >= 400) {
+        dispatch(addBlockFailure(node));
+        return;
+      }
+
+      const json = await res.json();
+
+      dispatch(addBlockSuccess(node, json));
+    } catch (err) {
+      dispatch(addBlockFailure(node));
+    }
+  };
+}
+
 export function checkNodeStatus(node) {
   return async (dispatch) => {
     try {

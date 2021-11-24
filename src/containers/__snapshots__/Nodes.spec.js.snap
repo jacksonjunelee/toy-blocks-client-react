@@ -19,6 +19,7 @@ exports[`<Nodes /> should match snapshot 1`] = `
   </h1>
   <div
     className="MuiPaper-root MuiAccordion-root makeStyles-root-2 MuiAccordion-rounded MuiPaper-elevation3 MuiPaper-rounded"
+    onClick={[Function]}
   >
     <div
       aria-disabled={false}
@@ -127,11 +128,9 @@ exports[`<Nodes /> should match snapshot 1`] = `
             <div
               className="MuiAccordionDetails-root"
             >
-              <p
-                className="MuiTypography-root MuiTypography-body1"
-              >
-                Blocks go here
-              </p>
+              <div
+                className="block-list"
+              />
             </div>
           </div>
         </div>
@@ -140,6 +139,7 @@ exports[`<Nodes /> should match snapshot 1`] = `
   </div>
   <div
     className="MuiPaper-root MuiAccordion-root makeStyles-root-2 MuiAccordion-rounded MuiPaper-elevation3 MuiPaper-rounded"
+    onClick={[Function]}
   >
     <div
       aria-disabled={false}
@@ -248,11 +248,9 @@ exports[`<Nodes /> should match snapshot 1`] = `
             <div
               className="MuiAccordionDetails-root"
             >
-              <p
-                className="MuiTypography-root MuiTypography-body1"
-              >
-                Blocks go here
-              </p>
+              <div
+                className="block-list"
+              />
             </div>
           </div>
         </div>
